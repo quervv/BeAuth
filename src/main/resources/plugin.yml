@@ -1,0 +1,82 @@
+name: BeAuth
+version: ${project.version}
+main: dev.beffaxone.beauth.BeAuth
+api-version: '1.20'
+description: Plugin di autenticazione premium per server offline/cracked e premium
+authors: [ beffaxone ]
+website: https://github.com/beffaxone/BeAuth
+prefix: BeAuth
+
+softdepend:
+  - PlaceholderAPI
+  - LuckPerms
+
+commands:
+  login:
+    description: Effettua il login con la tua password
+    usage: /login <password>
+    permission: beauth.login
+    aliases: [ l, accedi ]
+
+  register:
+    description: Registra un nuovo account
+    usage: /register <password> <conferma-password>
+    permission: beauth.login
+    aliases: [ reg, registra ]
+
+  changepassword:
+    description: Cambia la tua password
+    usage: /changepassword <vecchia-password> <nuova-password>
+    permission: beauth.login
+    aliases: [ cp, cambiapw, changepw ]
+
+  premium:
+    description: Attiva/disattiva la modalità premium
+    usage: /premium
+    permission: beauth.premium
+    aliases: [ prem ]
+
+  beauth:
+    description: Comando amministrativo di BeAuth
+    usage: /beauth <reload|forcechangepassword|premium|unregister> [player]
+    permission: beauth.admin
+    aliases: [ ba, auth ]
+
+permissions:
+  beauth.admin:
+    description: Permesso amministratore completo
+    default: op
+    children:
+      beauth.admin.reload: true
+      beauth.admin.forcechangepassword: true
+      beauth.admin.premium: true
+      beauth.admin.unregister: true
+      beauth.admin.bypass: true
+
+  beauth.admin.reload:
+    description: Permette di ricaricare la configurazione
+    default: op
+
+  beauth.admin.forcechangepassword:
+    description: Permette di forzare il cambio password
+    default: op
+
+  beauth.admin.premium:
+    description: Permette di gestire lo stato premium dei giocatori
+    default: op
+
+  beauth.admin.unregister:
+    description: Permette di de-registrare un giocatore
+    default: op
+
+  beauth.admin.bypass:
+    description: Bypassa l'autenticazione (per admin)
+    default: op
+
+  beauth.login:
+    description: Permette di usare i comandi di autenticazione
+    default: true
+
+  beauth.premium:
+    description: Permette di attivare la modalità premium
+    default: true

@@ -1,0 +1,191 @@
+# ============================================================
+#  BeAuth - Configurazione Principale
+#  Plugin di autenticazione premium per Paper/Spigot 1.20+
+#  Autore: beffax | Versione: 1.0.0
+# ============================================================
+
+# --- Database ---
+database:
+  # Tipo: sqlite | mysql
+  type: sqlite
+
+  # Configurazione SQLite (se type: sqlite)
+  sqlite:
+    file: beauth.db
+
+  # Configurazione MySQL (se type: mysql)
+  mysql:
+    host: localhost
+    port: 3306
+    database: beauth
+    username: root
+    password: password
+    # Parametri HikariCP connection pool
+    pool:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+# --- Autenticazione ---
+auth:
+  # Secondi di attesa massima per il login prima del kick
+  login-timeout: 60
+
+  # Numero massimo di tentativi di login errati prima del ban temporaneo
+  max-login-attempts: 5
+
+  # Durata in secondi del ban temporaneo dopo troppi tentativi
+  brute-force-ban-duration: 300
+
+  # Lunghezza minima password
+  min-password-length: 6
+
+  # Lunghezza massima password
+  max-password-length: 64
+
+  # Abilita l'auto-login per IP (sessione)
+  auto-login-ip: true
+
+  # Durata in ore della sessione IP
+  session-duration: 24
+
+  # Password vietate (troppo semplici)
+  forbidden-passwords:
+    - "123456"
+    - "password"
+    - "qwerty"
+    - "abc123"
+    - "123456789"
+    - "letmein"
+    - "admin"
+    - "minecraft"
+
+  # BCrypt work factor (10-14 consigliato, più alto = più sicuro ma più lento)
+  bcrypt-rounds: 12
+
+# --- Premium ---
+premium:
+  # Abilita il sistema premium
+  enabled: true
+
+  # Auto-login per account premium verificati
+  auto-login: true
+
+  # Timeout richiesta API Mojang in millisecondi
+  api-timeout: 5000
+
+  # Abilita la verifica UUID anti-spoof
+  uuid-verification: true
+
+# --- Messaggi e UI ---
+ui:
+  # Mostra title all'ingresso
+  show-join-title: true
+
+  # Mostra actionbar
+  show-actionbar: true
+
+  # Frequenza aggiornamento actionbar in tick (20 tick = 1 secondo)
+  actionbar-update-interval: 40
+
+  # Suoni
+  sounds:
+    login-success:
+      enabled: true
+      sound: ENTITY_PLAYER_LEVELUP
+      volume: 1.0
+      pitch: 1.0
+
+    login-fail:
+      enabled: true
+      sound: ENTITY_VILLAGER_NO
+      volume: 1.0
+      pitch: 1.0
+
+    register-success:
+      enabled: true
+      sound: UI_TOAST_CHALLENGE_COMPLETE
+      volume: 1.0
+      pitch: 1.0
+
+  # Particelle al login
+  particles:
+    enabled: false
+    type: TOTEM_OF_UNDYING
+    count: 30
+
+# --- GUI ---
+gui:
+  # Abilita la GUI
+  enabled: true
+
+# --- Sicurezza ---
+security:
+  # Abilita rate limiting per IP
+  rate-limit:
+    enabled: true
+    max-attempts: 5
+    window-seconds: 60
+
+  # Blocca comandi non autorizzati quando non loggato
+  blocked-commands:
+    enabled: true
+    # Comandi che NON sono bloccati (whitelist)
+    allowed-commands:
+      - login
+      - register
+      - l
+      - reg
+
+  # Proteggi dal packet exploit (movimento)
+  packet-protection: true
+
+  # Session token per prevenire session hijacking
+  session-tokens: true
+
+# --- Integrazioni ---
+integrations:
+  # PlaceholderAPI
+  placeholderapi:
+    enabled: true
+
+  # LuckPerms
+  luckperms:
+    enabled: true
+    # Gruppo assegnato agli utenti non autenticati
+    unauth-group: unauth
+
+  # bStats
+  bstats:
+    enabled: true
+    plugin-id: 12345
+
+  # Discord Webhook per alert login
+  discord:
+    enabled: false
+    webhook-url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+    # Alert per: login, register, failed-login, premium-toggle
+    alert-on:
+      login: true
+      register: true
+      failed-login: true
+      premium-toggle: true
+    embed-color: 5814783  # Colore embed (decimale)
+
+  # Update Checker
+  update-checker:
+    enabled: true
+    github-repo: "beffax/BeAuth"
+
+# --- Logging ---
+logging:
+  # Logga i tentativi di login falliti
+  log-failed-logins: true
+
+  # Logga i login riusciti
+  log-successful-logins: false
+
+  # Logga le registrazioni
+  log-registrations: true
