@@ -1,0 +1,38 @@
+# ==========================================
+# BeAuth - AntiVPN Configuration
+# ==========================================
+
+# Enable or disable the AntiVPN checks
+enabled: true
+
+# The kick message shown to players detected using a VPN/Proxy.
+# Use %ip% as a placeholder for the player's IP address.
+# Color codes (&) are supported.
+kick-message: "&cANTIVPN >> non puoi entrare con questo ip %ip%"
+
+# API settings for VPN detection
+api:
+  # The detection service to use. Currently supports "proxycheck" (recommended)
+  service: "proxycheck"
+  
+  # API Key for proxycheck.io (optional, free tier allows 1000 daily checks without a key)
+  key: ""
+  
+  # Connection and read timeout in milliseconds for the API request
+  timeout: 3000
+
+# Cache settings to avoid hitting API rate limits on every join
+cache:
+  # Cache duration in hours. Set to 0 to disable caching.
+  duration-hours: 24
+
+# Whitelist settings - players or IPs that are allowed to bypass the VPN check
+whitelist:
+  players:
+    - "beffaxone"
+  ips:
+    - "127.0.0.1"
+    - "0:0:0:0:0:0:0:1"
+
+# Bypass permission. If true, players with 'beauth.antivpn.bypass' bypass the check.
+permission-bypass: true

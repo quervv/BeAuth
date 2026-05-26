@@ -1,200 +1,89 @@
-# ============================================================
-#  BeAuth - Messaggi
-#  Supporta: HEX colors (#RRGGBB), codici &, MiniMessage
-#  Esempio HEX: &#FF5733Testo in arancione
-#  Prefisso automatico: configurato sotto
-# ============================================================
-
 prefix: "&8[&bBeAuth&8] &r"
-
-# --- Messaggi Generali ---
 general:
-  no-permission: "&cNon hai il permesso per eseguire questo comando."
-  player-only: "&cQuesto comando può essere eseguito solo da un giocatore."
-  unknown-command: "&cComando sconosciuto. Usa /beauth help per la lista dei comandi."
-  player-not-found: "&cGiocatore &e{player} &cnon trovato o non connesso."
-  reload-success: "&aConfigurazione ricaricata con successo!"
-  reload-failed: "&cErrore durante il ricaricamento della configurazione."
-
-# --- Login ---
+  no-permission: "&cYou do not have permission to execute this command."
+  player-only: "&cThis command can only be executed by a player."
+  unknown-command: "&cUnknown command. Use /beauth help."
+  player-not-found: "&cPlayer &e{player} &cnot found or offline."
+  reload-success: "&aConfiguration reloaded successfully!"
+  reload-failed: "&cError reloading configuration."
 login:
-  # Messaggio mostrato quando il giocatore entra nel server (non loggato)
-  prompt: "&eEsegui &b/login <password> &eper accedere al tuo account."
-
-  # Titolo mostrato all'ingresso
-  title: "&#FFD700Benvenuto!"
-  subtitle: "&eEsegui /login per accedere"
-
-  # Actionbar mostrata quando non loggato
-  actionbar: "&#FF6B6B⚠ Effettua il login con /login <password> ⚠"
-
-  # Messaggio login riuscito
-  success: "&#2ECC71✔ Login effettuato con successo! Benvenuto, &b{player}&a."
-
-  # Messaggio password errata
-  wrong-password: "&cPassword errata! Tentativo {attempts}/{max-attempts}."
-
-  # Account non registrato
-  not-registered: "&cNon sei registrato! Usa &b/register <password> <password> &cper creare un account."
-
-  # Già loggato
-  already-logged-in: "&eSei già loggato."
-
-  # Timeout login (kick)
-  timeout-kick: "&cHai impiegato troppo tempo ad effettuare il login. Riconnettiti."
-
-  # Auto-login da IP
-  auto-login: "&#2ECC71✔ Accesso automatico effettuato! Benvenuto, &b{player}&a."
-
-  # Troppi tentativi falliti
-  too-many-attempts: "&cTroppi tentativi falliti. Riprova tra &e{seconds} &csecondi."
-
-  # Ban temporaneo brute-force
-  brute-force-ban: "&cTroppi tentativi di login falliti. Sei stato bloccato per &e{minutes} minuti&c."
-
-  # Uso corretto
-  usage: "&cUtilizzo: &b/login <password>"
-
-  # Sessione premium
-  premium-auto-login: "&#2ECC71✔ Login automatico premium! Benvenuto, &b{player}&a."
-
-# --- Registrazione ---
+  prompt: "&ePlease login with &b/login <password>&e."
+  title: "&#FFD700Welcome!"
+  subtitle: "&eUse /login to access"
+  actionbar: "&#FF6B6B⚠ Login with /login <password> ⚠"
+  success: "&#2ECC71✔ Successfully logged in! Welcome, &b{player}&a."
+  wrong-password: "&cWrong password! Attempt {attempts}/{max-attempts}."
+  not-registered: "&cYou are not registered! Use &b/register <password> <password>&c."
+  already-logged-in: "&eYou are already logged in."
+  timeout-kick: "&cYou took too long to log in. Please reconnect."
+  auto-login: "&#2ECC71✔ Automatically logged in! Welcome, &b{player}&a."
+  too-many-attempts: "&cToo many failed attempts. Try again in &e{seconds} &cseconds."
+  brute-force-ban: "&cToo many failed login attempts. Suspended for &e{minutes} minutes&c."
+  usage: "&cUsage: &b/login <password>"
+  premium-auto-login: "&#2ECC71✔ Premium auto-login! Welcome, &b{player}&a."
 register:
-  # Prompt registrazione
-  prompt: "&ePrima volta? Registrati con &b/register <password> <password>&e."
-
-  # Titolo
-  title: "&#FFD700Benvenuto!"
-  subtitle: "&eRegistrati con /register"
-
-  # Registrazione riuscita
-  success: "&#2ECC71✔ Registrazione completata! Benvenuto su &b{server}&a, &b{player}&a!"
-
-  # Password non coincidono
-  password-mismatch: "&cLe password non coincidono. Riprova."
-
-  # Password troppo corta
-  password-too-short: "&cLa password deve essere di almeno &b{min} &ccaratteri."
-
-  # Password troppo lunga
-  password-too-long: "&cLa password non può superare &b{max} &ccaratteri."
-
-  # Password vietata
-  password-forbidden: "&cLa password scelta è troppo semplice. Scegliene una più sicura."
-
-  # Già registrato
-  already-registered: "&cSei già registrato! Usa &b/login <password> &cper accedere."
-
-  # Uso corretto
-  usage: "&cUtilizzo: &b/register <password> <conferma-password>"
-
-# --- Cambio Password ---
+  prompt: "&eFirst time? Register with &b/register <password> <password>&e."
+  title: "&#FFD700Welcome!"
+  subtitle: "&eRegister with /register"
+  success: "&#2ECC71✔ Registered successfully! Welcome to &b{server}&a, &b{player}&a!"
+  password-mismatch: "&cPasswords do not match. Try again."
+  password-too-short: "&cPassword must be at least &b{min} &ccharacters."
+  password-too-long: "&cPassword cannot exceed &b{max} &ccharacters."
+  password-forbidden: "&cThe password chosen is too simple. Choose a safer one."
+  already-registered: "&cYou are already registered! Use &b/login <password>&c."
+  usage: "&cUsage: &b/register <password> <confirm-password>"
 change-password:
-  # Cambio riuscito
-  success: "&#2ECC71✔ Password cambiata con successo!"
-
-  # Vecchia password errata
-  wrong-old-password: "&cLa vecchia password non è corretta."
-
-  # Non loggato
-  not-logged-in: "&cDevi essere loggato per cambiare la password."
-
-  # Uso corretto
-  usage: "&cUtilizzo: &b/changepassword <vecchia-password> <nuova-password>"
-
-# --- Sistema Premium ---
+  success: "&#2ECC71✔ Password changed successfully!"
+  wrong-old-password: "&cOld password is incorrect."
+  not-logged-in: "&cYou must be logged in to change your password."
+  usage: "&cUsage: &b/changepassword <old> <new>"
 premium:
-  # Premium attivato
-  enabled: "&#2ECC71✔ Modalità premium attivata! Sarai disconnesso per completare la verifica."
-
-  # Premium disattivato
-  disabled: "&eModalità cracked attivata. Usa /register per impostare una password."
-
-  # Non verificabile (account non premium)
-  not-premium: "&cIl tuo account non risulta premium su Mojang. Verifica il tuo nome utente."
-
-  # Errore API
-  api-error: "&cErrore durante la verifica premium. Riprova più tardi."
-
-  # Già premium
-  already-premium: "&eSei già in modalità premium."
-
-  # Non premium
-  already-cracked: "&eSei già in modalità cracked."
-
-  # Verifica in corso
-  checking: "&eVerifica account premium in corso..."
-
-  # Spoof UUID rilevato
-  uuid-spoof: "&cRilevato tentativo di spoofing UUID. Connessione rifiutata."
-
-# --- Sicurezza ---
+  enabled: "&#2ECC71✔ Premium mode enabled! You will be disconnected to complete verification."
+  disabled: "&eCracked mode enabled. Use /register to set a password."
+  not-premium: "&cYour account is not premium on Mojang. Check your username."
+  api-error: "&cError verifying premium status. Try again later."
+  already-premium: "&eYou are already in premium mode."
+  already-cracked: "&eYou are already in cracked mode."
+  checking: "&eChecking premium account status..."
+  uuid-spoof: "&cUUID spoofing detected. Connection refused."
 security:
-  # Movimento bloccato
-  move-blocked: "&cNon puoi muoverti prima di aver effettuato il login!"
-
-  # Chat bloccata
-  chat-blocked: "&cNon puoi chattare prima di aver effettuato il login!"
-
-  # Comandi bloccati
-  command-blocked: "&cNon puoi usare comandi prima di aver effettuato il login!"
-
-  # Inventory bloccato
-  inventory-blocked: "&cNon puoi aprire l'inventario prima di aver effettuato il login!"
-
-# --- Admin ---
+  move-blocked: "&cYou cannot move before logging in!"
+  chat-blocked: "&cYou cannot chat before logging in!"
+  command-blocked: "&cYou cannot use commands before logging in!"
+  inventory-blocked: "&cYou cannot open inventories before logging in!"
 admin:
-  # Reload
-  reload-success: "&#2ECC71✔ BeAuth ricaricato con successo!"
-
-  # Force change password
-  force-change-success: "&#2ECC71✔ Password di &b{player} &acambiata con successo."
-  force-change-usage: "&cUtilizzo: &b/beauth forcechangepassword <player> <nuova-password>"
-
-  # Set premium
-  set-premium-success: "&#2ECC71✔ Account di &b{player} &aimpostato come premium."
-  set-cracked-success: "&eAccount di &b{player} &eimpostato come cracked."
-  set-premium-usage: "&cUtilizzo: &b/beauth premium <player> [true|false]"
-
-  # Unregister
-  unregister-success: "&#2ECC71✔ Account di &b{player} &arimosso con successo."
-  unregister-usage: "&cUtilizzo: &b/beauth unregister <player>"
-
-  # Player not registered
-  player-not-registered: "&cIl giocatore &e{player} &cnon è registrato."
-
-  # Info
+  reload-success: "&#2ECC71✔ BeAuth reloaded successfully!"
+  force-change-success: "&#2ECC71✔ Password for &b{player} &cchanged successfully."
+  force-change-usage: "&cUsage: &b/beauth forcechangepassword <player> <new-password>"
+  set-premium-success: "&#2ECC71✔ Account for &b{player} &cset to premium."
+  set-cracked-success: "&eAccount for &b{player} &cset to cracked."
+  set-premium-usage: "&cUsage: &b/beauth premium <player> [true|false]"
+  unregister-success: "&#2ECC71✔ Account for &b{player} &cremoved successfully."
+  unregister-usage: "&cUsage: &b/beauth unregister <player>"
+  player-not-registered: "&cPlayer &e{player} &cis not registered."
   info-header: "&8&m-----&r &bBeAuth &8v{version} &8&m-----&r"
-  info-player: "&7Giocatore: &b{player}"
+  info-player: "&7Player: &b{player}"
   info-uuid: "&7UUID: &b{uuid}"
-  info-registered: "&7Registrato: &b{registered}"
+  info-registered: "&7Registered: &b{registered}"
   info-premium: "&7Premium: &b{premium}"
-  info-last-ip: "&7Ultimo IP: &b{ip}"
-  info-last-login: "&7Ultimo login: &b{date}"
-
-# --- GUI ---
+  info-last-ip: "&7Last IP: &b{ip}"
+  info-last-login: "&7Last Login: &b{date}"
 gui:
   login-info:
-    title: "&#5B2D8F♦ Info Account"
-    status-logged: "&#2ECC71● Autenticato"
-    status-not-logged: "&#E74C3C● Non autenticato"
-
+    title: "&#5B2D8F♦ Account Info"
+    status-logged: "&#2ECC71● Authenticated"
+    status-not-logged: "&#E74C3C● Unauthenticated"
   premium-status:
-    title: "&#FFD700★ Stato Premium"
-    premium: "&#FFD700✔ Account Premium"
-    cracked: "&7✗ Account Cracked"
-
+    title: "&#FFD700★ Premium Status"
+    premium: "&#FFD700✔ Premium Account"
+    cracked: "&7✗ Cracked Account"
   account-settings:
-    title: "&#5B2D8F⚙ Impostazioni Account"
-
-# --- Discord Webhook ---
+    title: "&#5B2D8F⚙ Account Settings"
 discord:
-  login-message: "🔐 **{player}** ha effettuato il login dal IP `{ip}`"
-  register-message: "📝 **{player}** si è registrato con IP `{ip}`"
-  failed-login-message: "⚠️ **{player}** ha inserito la password errata (tentativo {attempts})"
-  premium-toggle-message: "⭐ **{player}** ha cambiato lo stato premium: `{status}`"
-
-# --- Update Checker ---
+  login-message: "🔐 **{player}** logged in from IP `{ip}`"
+  register-message: "📝 **{player}** registered with IP `{ip}`"
+  failed-login-message: "⚠️ **{player}** entered wrong password (attempt {attempts})"
+  premium-toggle-message: "⭐ **{player}** toggled premium status to `{status}`"
 update:
-  available: "&#FFD700⬆ Nuova versione disponibile: &b{version}&e! Scaricala da: &b{url}"
-  up-to-date: "&#2ECC71✔ BeAuth è aggiornato alla versione {version}."
+  available: "&#FFD700⬆ New version available: &b{version}&e! Download at: &b{url}"
+  up-to-date: "&#2ECC71✔ BeAuth is up to date."

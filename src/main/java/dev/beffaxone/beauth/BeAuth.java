@@ -2,8 +2,10 @@ package dev.beffaxone.beauth;
 
 import dev.beffaxone.beauth.auth.AuthManager;
 import dev.beffaxone.beauth.commands.*;
+import dev.beffaxone.beauth.config.AntiVPNConfig;
 import dev.beffaxone.beauth.config.ConfigManager;
 import dev.beffaxone.beauth.config.MessagesManager;
+import dev.beffaxone.beauth.utils.AntiVPNManager;
 import dev.beffaxone.beauth.database.DatabaseManager;
 import dev.beffaxone.beauth.database.MySQLDatabase;
 import dev.beffaxone.beauth.database.SQLiteDatabase;
@@ -22,10 +24,12 @@ public final class BeAuth extends JavaPlugin {
 
     private static BeAuth instance;
     private ConfigManager configManager;
+    private AntiVPNConfig antiVPNConfig;
     private MessagesManager messagesManager;
     private DatabaseManager databaseManager;
     private AuthManager authManager;
     private PremiumManager premiumManager;
+    private AntiVPNManager antiVPNManager;
 
     @Override
     public void onEnable() {
@@ -43,6 +47,7 @@ public final class BeAuth extends JavaPlugin {
         }
         authManager = new AuthManager(this);
         premiumManager = new PremiumManager(this);
+        antiVPNManager = new AntiVPNManager(this);
         registerListeners();
         registerCommands();
         loadIntegrations();
@@ -70,7 +75,9 @@ public final class BeAuth extends JavaPlugin {
         try {
             saveDefaultConfig();
             saveResourceIfNotExists("messages.yml");
+            saveResourceIfNotExists("antivpn.yml");
             configManager = new ConfigManager(this);
+            antiVPNConfig = new AntiVPNConfig(this);
             messagesManager = new MessagesManager(this);
             return true;
         } catch (Exception e) {
@@ -97,6 +104,7 @@ public final class BeAuth extends JavaPlugin {
     private void registerListeners() {
         var pm = Bukkit.getPluginManager();
         pm.registerEvents(new PlayerJoinListener(this), this);
+        pm.registerEvents(new AntiVPNListener(this), this);
         pm.registerEvents(new PlayerQuitListener(this), this);
         pm.registerEvents(new PlayerMoveListener(this), this);
         pm.registerEvents(new ChatListener(this), this);
@@ -152,6 +160,12 @@ public final class BeAuth extends JavaPlugin {
     public void reload() {
         reloadConfig();
         configManager.reload();
+        if (antiVPNConfig != null) {
+            antiVPNConfig.reload();
+        }
+        if (antiVPNManager != null) {
+            antiVPNManager.clearCache();
+        }
         messagesManager.reload();
     }
 
@@ -177,5 +191,13 @@ public final class BeAuth extends JavaPlugin {
 
     public PremiumManager getPremiumManager() {
         return premiumManager;
+    }
+
+    public AntiVPNConfig getAntiVPNConfig() {
+        return antiVPNConfig;
+    }
+
+    public AntiVPNManager getAntiVPNManager() {
+        return antiVPNManager;
     }
 }
