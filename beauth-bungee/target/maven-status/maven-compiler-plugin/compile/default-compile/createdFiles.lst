@@ -1,0 +1,6 @@
+dev\beffaxone\beauth\bungee\MojangAPI.class
+dev\beffaxone\beauth\bungee\BeAuthBungee.class
+dev\beffaxone\beauth\bungee\MojangAPI$PremiumResult.class
+dev\beffaxone\beauth\bungee\MojangAPI$CacheEntry.class
+dev\beffaxone\beauth\bungee\ConfigManager.class
+dev\beffaxone\beauth\bungee\PreLoginListener.class

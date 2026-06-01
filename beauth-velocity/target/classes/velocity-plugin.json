@@ -1,0 +1,1 @@
+{"id":"beauth-velocity","name":"BeAuth-Velocity","version":"1.0.0","description":"Companion Velocity plugin for BeAuth","authors":["beffaxone"],"dependencies":[],"main":"dev.beffaxone.beauth.velocity.BeAuthVelocity"}

@@ -1,0 +1,15 @@
+# BeAuth BungeeCord Configuration
+
+enabled: true
+
+# Timeout in milliseconds for Mojang API check
+mojang-timeout: 5000
+
+# Cache duration in minutes for premium status lookups
+cache-duration-minutes: 30
+
+# Kick the player if the Mojang API check fails (fail-secure)
+kick-on-api-error: true
+
+messages:
+  api-error: "&cErrore nella verifica dello stato premium. Riprova più tardi."

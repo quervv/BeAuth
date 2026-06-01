@@ -1,0 +1,10 @@
+{
+  "id": "beauth-velocity",
+  "name": "BeAuth-Velocity",
+  "version": "${project.version}",
+  "description": "Companion Velocity plugin for BeAuth",
+  "authors": [
+    "beffaxone"
+  ],
+  "main": "dev.beffaxone.beauth.velocity.BeAuthVelocity"
+}

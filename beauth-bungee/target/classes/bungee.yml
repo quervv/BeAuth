@@ -1,0 +1,5 @@
+name: BeAuth-Bungee
+version: 1.0.0
+main: dev.beffaxone.beauth.bungee.BeAuthBungee
+author: beffaxone
+description: Companion BungeeCord plugin for BeAuth
